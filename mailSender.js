@@ -24,8 +24,8 @@ export default class MailSender {
     return {
       from: process.env.USER_EMAIL,
       to: process.env.EMAIL_RECIEVER,
-      subject: "Sending Email using Node.js",
-      text: "That was easy!",
+      subject: subject,
+      text: text,
     };
   }
 
