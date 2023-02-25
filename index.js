@@ -1,8 +1,12 @@
+import * as dotenv from "dotenv";
 import axios from "axios";
 import MailSender from "./mailSender.js";
 
+// CONFIG DOTENV
+dotenv.config();
+
 // API URL
-const apiUrl = "https://alternative.me/api/crypto/fear-and-greed-index/history";
+const apiUrl = process.env.API_URL;
 
 // DAYS TO SHOW
 const days = 1;
@@ -23,8 +27,8 @@ const tolerance = 10;
 const mailSender = new MailSender();
 
 const checkIndex = (index) => {
-  const isIndexHigh = index >= highIndex - 10;
-  const isIndexLow = index <= lowIndex + 10;
+  const isIndexHigh = index >= highIndex - tolerance;
+  const isIndexLow = index <= lowIndex + tolerance;
 
   // IF MARKET IS STABLE
   if (!isIndexLow && !isIndexHigh) return;
