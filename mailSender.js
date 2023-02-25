@@ -33,16 +33,30 @@ export default class MailSender {
    * @param string
    * @void
    */
-  sendEmailForHighIndex(index) {}
+  sendEmailForHighIndex(index) {
+    const options = this.getEmailOptions(
+      `Market je GREEDY. Index je: ${index}`,
+      `Market postaja vroč. Razmišljaj o prodaji. Index je ${index}`
+    );
+
+    this.sendMail(options);
+  }
 
   /**
    * @param string
    * @void
    */
-  sendEmailForLowIndex(index) {}
+  sendEmailForLowIndex(index) {
+    const options = this.getEmailOptions(
+      `Market je FEARFUL. Index je: ${index}`,
+      `Market postaja prestrašen. Razmišljaj o nakupu. Index je ${index}`
+    );
 
-  sendMail() {
-    this.transporter.sendMail(this.mailOptions, (err, info) => {
+    this.sendMail(options);
+  }
+
+  sendMail(mailOptions) {
+    this.transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
         console.log(err);
       } else {

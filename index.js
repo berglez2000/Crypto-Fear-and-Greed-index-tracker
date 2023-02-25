@@ -31,7 +31,7 @@ const checkIndex = (index) => {
   const isIndexLow = index <= lowIndex + tolerance;
 
   // IF MARKET IS STABLE
-  if (!isIndexLow && !isIndexHigh) return;
+  if (!isIndexLow && !isIndexHigh) return console.log("Market je stabilen");
 
   // IF MARKET IS GREEDY
   if (isIndexHigh) {
