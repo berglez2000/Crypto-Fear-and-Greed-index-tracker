@@ -18,7 +18,7 @@ const apiBody = {
 
 // INDICATORS
 const highIndex = 75;
-const lowIndex = 20;
+const lowIndex = 25;
 
 // TOLERANCE
 const tolerance = 10;
